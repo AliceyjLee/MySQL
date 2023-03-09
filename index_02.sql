@@ -202,14 +202,15 @@ SELECT custid, SUM(price*amount) total_price, SUM(amount) total_amount
     HAVING SUM(price*amount) >= '10000';
     
     -- 총 주문액이 10000원 이상인 고객에 대해 고객별로 주문한 상품 총 수량 구하기 ( 단, custid가 'bunny'인 경우 제외 )
-    SELECT custid, SUM(price*amount) total_price, SUM(amount) total_amount
+SELECT custid, SUM(price*amount) total_price, SUM(amount) total_amount
     FROM orders
     WHERE custid != 'bunny'                                                     -- WHERE절이 있을 때
 	GROUP BY custid 
     HAVING SUM(price*amount) >= '10000';
     
-    SELECT custid, SUM(price*amount) total_price, SUM(amount) total_amount
+SELECT custid, SUM(price*amount) total_price, SUM(amount) total_amount
     FROM orders
 	GROUP BY custid 
-    HAVING SUM(price*amount) >= '10000' AND custid != 'bunny';
+    HAVING SUM(price*amount) >= '10000' AND custid != 'bunny';                   -- WHERE절이 없을 때
+
 
