@@ -154,7 +154,7 @@ SELECT SUM(amount) FROM orders;
 -- AS 변경이름 : 변경이름으로 속성이름을 변경
 SELECT SUM(amount) AS 'total_amount' FROM orders;
 SELECT SUM(amount) AS total_amount FROM orders; 
-SELECT SUM(amount) '총 판매 개수' FROM orders; 
+SELECT SUM(amount) 'total_amount' FROM orders; 
 
 -- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
 SELECT SUM(amount) AS 'total_amount',
