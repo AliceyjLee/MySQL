@@ -53,3 +53,36 @@ SELECT orderid, custid, prodname FROM orders
     
 -- 주문 이력이 있는 고객 조회 
 SELECT custname FROM customer WHERE custid IN ( SELECT custid FROM orders );
+
+-- LEFT OUTER JOIN, LEFT JOIN ( OUTER 생략가능 )
+-- 첫번째 테이블을 기준으로 두번째 테이블을 조합하는 JOIN
+-- 구조 : 테이블1 LEFT JOIN 테이블2 ON 조인조건
+-- LEFT 테이블이 기준이 되며 모든 속성이 출력 됨
+-- ON조건을 불만족 시, 테이블1 속성값은 그대로, 테이블2 속성값은 NULL
+
+USE new_smartfactory;
+SELECT * FROM authors;  -- 3명
+SELECT * FROM books;    -- 4권
+INSERT books VALUES ( 4, 'HELLO WORLD', 3, '2023-03-14' );
+INSERT books VALUES ( 1, 'Harry Potter and the Philosopher''s Stone', 1, '1997-06-26' );
+
+-- books 테이블에 테이터 추가 
+-- 책아이디 : 5 
+-- 제목 : Lucky Day
+-- 작가아이디 : NULL
+-- 출판일자 : 2023-03-01
+INSERT books VALUES ( 5, 'Lucky Day', NULL, '2023-03-01' );
+
+-- INNER JOIN (books, authors)
+SELECT * FROM books INNER JOIN authors ON books.author_id = authors.author_id;
+-- books 테이블에 author_id가 NULL인 행은 제외되고 출력
+
+-- LEFT JOIN (books, authors)
+SELECT * FROM books LEFT JOIN authors ON books.author_id = authors.author_id;   
+-- books 테이블에 author_id가 NULL인 행이 있더라고 출력
+SELECT * FROM authors LEFT JOIN books ON books.author_id = authors.author_id;    
+-- LEFT JOIN에는 순서가 존재 ( JOIN에서는 순서 상관없음 )
+
+-- RIGHT JOIN (books, authors)
+SELECT * FROM books RIGHT JOIN authors ON books.author_id = authors.author_id;  
+SELECT * FROM authors RIGHT JOIN books ON books.author_id = authors.author_id; 
