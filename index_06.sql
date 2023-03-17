@@ -44,5 +44,5 @@ GRANT SELECT ON new_smartfactory.* TO 'happy'@'localhost' WITH GRANT OPTION;
 -- REVOKE 문 : 특정 데이터베이스 사용자에게 특정 작업에 대한 권한 박탈 
 -- 구조 : REVOKE 권한유형 ON 데이터베이스명.테이블명 FROM '계정명'@'접속경로';
 REVOKE DELETE ON *.* FROM 'codee'@'localhost';
-
+REVOKE ALL ON *.* FROM 'codee'@'localhost';
 
