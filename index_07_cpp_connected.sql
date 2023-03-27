@@ -14,6 +14,7 @@ USE cpp_db;
 SHOW TABLES;
 SELECT * FROM inventory;
 
+-- C++ 연동 test0317
 SHOW TABLES;
 SELECT * FROM department;
 
